@@ -1,0 +1,9 @@
+﻿@model List<Course>
+
+    @foreach (var item in Model)
+    {
+         <li style="background-color: whitesmoke; overflow:auto; max-height:max-content" class="d-flex justify-content-start ">
+             <img width="160" src="~/img/course/@item.ImageUrl">
+            <br> <a  style="background-color: white; color: black;" asp-controller="course" asp-action="index" asp-route-id="@item.Id"> Name: @item.Name.ToUpperInvariant()</a>
+         </li>
+    }

@@ -1,0 +1,50 @@
+﻿@model EventVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_PagesLayout.cshtml";
+}
+
+  <!-- Event Start -->
+        <div class="event-area three text-center pt-150 pb-150">
+            <div class="container">
+                <div class="row">
+                   @foreach (var events in Model.Events)
+                  {
+                       <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="single-event mb-60">
+                            <div class="event-img">
+                                <a asp-controller="event" asp-action="detail" asp-route-id="@events.Id">
+                                    <img src="~/img/event/@events.imageUrl" alt="event">
+                                    <div class="course-hover">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </a>
+                               @if (events.StartTime.Day < 10) 
+                                {
+                                  <div class="event-date pt-20"> <h3 style="display: inline; padding-top:5px">0</h3><h3 style="display: inline">@events.StartTime.Day <span>jun</span></h3>
+                               </div>
+                                }
+                                else
+                                {
+                                  <div class="event-date">
+                                  <h3> @events.StartTime.Day<span>jun</span></h3></div>
+                                }
+                            </div>
+                            <div class="event-content text-left">
+                                <h4><a href="event-details.html">@events.Name</a></h4>
+                                <ul>
+                                    <li><span>time:</span> @events.StartTime.Hour.@events.StartTime.Minute AM - @events.EndTime.Hour.@events.EndTime.Minute PM</li>
+                                    <li><span>venue</span> @events.Location</li>
+                                </ul>
+                                <div class="event-content-right">
+                                    <a class="default-btn" href="event-details.html">join now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  }
+                </div>
+            </div>
+        </div>      
+        <!-- Event End -->
+

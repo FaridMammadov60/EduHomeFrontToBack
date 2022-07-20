@@ -1,0 +1,27 @@
+﻿@model BlogVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_PagesLayout.cshtml";
+}
+   <!-- Blog Start -->
+        <div class="blog-area pt-150 pb-150">
+            <div class="container">
+                <div class="row">
+               <input class="contName" type="hidden" value="blog"/>
+                 @await Component.InvokeAsync("Blog",9)
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="pagination">
+                            <ul>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+

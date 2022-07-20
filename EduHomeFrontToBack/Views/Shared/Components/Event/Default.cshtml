@@ -1,0 +1,22 @@
+﻿@model List<Event>
+
+    @foreach (var item in Model)
+   {
+          <div class="single-event mb-35">
+                            <div class="event-date">
+                                <h3><a href="event-details.html">@item.StartTime.Day <span>June</span></a></h3>
+                            </div>
+                            <div class="event-content text-left">
+                                <div class="event-content-left">
+                                    <h4><a href="event-details.html">@item.Name</a></h4>
+                                    <ul>
+                                        <li><i class="fa fa-clock-o"></i>@item.StartTime.Hour.@item.StartTime.Minute AM - @item.EndTime.Hour.@item.EndTime.Minute PM</li>
+                                        <li><i class="fa fa-map-marker"></i>@item.Location</li>
+                                    </ul>
+                                </div>
+                                <div class="event-content-right">
+                                    <a class="default-btn" href="event-details.html">join now</a>
+                                </div>
+                            </div>
+                        </div>
+   }
